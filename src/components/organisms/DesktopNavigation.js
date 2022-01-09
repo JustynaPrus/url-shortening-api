@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../images/logo.svg";
-import { StyledNav } from "./MobileNavigation.styles";
+import { StyledNav } from "./DesktopNavigation.styles";
 
 const DesktopNavigation = () => {
   return (

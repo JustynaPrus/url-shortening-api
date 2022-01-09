@@ -9,6 +9,7 @@ export const HeaderWrapper = styled.main`
   }
   h1 {
     color: ${({ theme }) => theme.colors.veryDarkBlue};
+    margin: 30px 0 10px 0;
   }
   p {
     color: ${({ theme }) => theme.colors.veryDarkBlue};
@@ -19,7 +20,7 @@ export const StyledButton = styled.button`
   border: none;
   border-radius: 30px;
   padding: 15px 40px;
-  margin: 20px 0;
+  margin: 30px 0 60px 0;
   color: white;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
