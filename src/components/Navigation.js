@@ -1,17 +1,12 @@
 import React from "react";
-import logo from "../images/logo.svg";
+import MobileNavigation from "./organisms/MobileNavigation";
+import DesktopNavigation from "./organisms/DesktopNavigation";
 
 const Navigation = () => {
   return (
     <nav>
-      <img src={logo} alt="logo" />
-      <ul>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Resources</li>
-        <li>Login</li>
-        <li>Sign Up</li>
-      </ul>
+      <MobileNavigation />
+      <DesktopNavigation />
     </nav>
   );
 };

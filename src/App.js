@@ -1,4 +1,7 @@
 import "./App.css";
+import { Wrapper } from "./App.styles";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./theme";
 import Navigation from "./components/Navigation";
 import Header from "./components/Header";
 import ShortenUrl from "./components/ShortenUrl";
@@ -9,12 +12,16 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Navigation />
-      <Header />
-      <ShortenUrl />
-      <Main />
-      <Section />
-      <Footer />
+      <Wrapper>
+        <ThemeProvider theme={theme}>
+          <Navigation />
+          <Header />
+          <ShortenUrl />
+          <Main />
+          <Section />
+          <Footer />
+        </ThemeProvider>
+      </Wrapper>
     </>
   );
 }

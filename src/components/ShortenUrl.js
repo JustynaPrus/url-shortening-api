@@ -1,11 +1,12 @@
 import React from "react";
+import { StyledSection } from "./ShortenUrl.styles";
 
 const ShortenUrl = () => {
   return (
-    <section>
+    <StyledSection>
       <input type="text" placeholder="Shorten a link here..." />
       <button>Shorten It!</button>
-    </section>
+    </StyledSection>
   );
 };
 

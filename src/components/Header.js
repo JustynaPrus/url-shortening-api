@@ -1,17 +1,18 @@
 import React from "react";
 import working from "../images/illustration-working.svg";
+import { HeaderWrapper, StyledButton } from "./Header.styles";
 
 const Header = () => {
   return (
-    <header>
+    <HeaderWrapper>
       <img src={working} alt="working" />
       <h1>More than just shorter links</h1>
       <p>
         Build your brand's recognition and get detailed insights on how your
         links are performing.
       </p>
-      <button>Get Started</button>
-    </header>
+      <StyledButton>Get Started</StyledButton>
+    </HeaderWrapper>
   );
 };
 

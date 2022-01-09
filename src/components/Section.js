@@ -1,11 +1,12 @@
 import React from "react";
+import { Wrapper } from "./Section.styles";
 
 const Section = () => {
   return (
-    <section>
+    <Wrapper>
       <h2>Boost your links today</h2>
       <button>Get Started</button>
-    </section>
+    </Wrapper>
   );
 };
 
