@@ -1,17 +1,19 @@
 import React from "react";
-import logo from "../../images/logo.svg";
-import { StyledNav } from "./DesktopNavigation.styles";
+import { StyledNav, StyledDiv, Box } from "./DesktopNavigation.styles";
 
 const DesktopNavigation = () => {
   return (
     <StyledNav>
-      <img src={logo} alt="logo" />
       <ul>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Resources</li>
-        <li>Login</li>
-        <li>Sign Up</li>
+        <StyledDiv>
+          <li>Features</li>
+          <li>Pricing</li>
+          <li>Resources</li>
+        </StyledDiv>
+        <Box>
+          <li>Login</li>
+          <button>Sign Up</button>
+        </Box>
       </ul>
     </StyledNav>
   );
