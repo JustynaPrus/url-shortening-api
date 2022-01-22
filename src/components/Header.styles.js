@@ -31,6 +31,7 @@ export const HeaderWrapper = styled.main`
 `;
 
 export const StyledButton = styled.button`
+  cursor: pointer;
   border: none;
   border-radius: 30px;
   padding: 15px 40px;

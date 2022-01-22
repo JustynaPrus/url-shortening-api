@@ -12,6 +12,7 @@ export const Wrapper = styled.section`
   background-color: ${({ theme }) => theme.colors.darkViolet};
   width: 100%;
   button {
+    cursor: pointer;
     border: none;
     border-radius: 30px;
     padding: 15px 40px;
