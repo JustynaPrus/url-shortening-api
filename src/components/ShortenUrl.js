@@ -4,36 +4,35 @@ import { StyledSection, Wrapper } from "./ShortenUrl.styles";
 const ShortenUrl = () => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  const [
-    list = {
-      url: "",
-      shortenUrl: "",
-    },
-    setList,
-  ] = useState([]);
+  const [url, setUrl] = useState([]);
+  const [shorten, setShorten] = useState([]);
+
   const API = `https://api.shrtco.de/v2/shorten?url=${value}`;
 
   const loadData = async () => {
     setLoading(true);
     await fetch(API)
       .then((response) => response.json())
-      .then((data) => setData(data.result.full_short_link))
+      .then((data) => {
+        const newUrl = data.result.full_short_link;
+        setShorten((shorten) => [...shorten, newUrl]);
+      })
       .catch((error) => {
         setError(error);
       })
       .finally(() => {
         setLoading(false);
       });
-    return { data, loading, error };
+    return { loading, error };
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     loadData();
     console.log(value);
-    console.log(data);
+    setUrl((url) => [...url, value]);
+    console.log(shorten);
     setValue("");
   };
 
@@ -52,8 +51,17 @@ const ShortenUrl = () => {
         </form>
       </StyledSection>
       <Wrapper>
-        <p>{data}</p>
-        <p>{value}</p>
+        {shorten.map((item) => (
+          <li>
+            <p>{item}</p>
+          </li>
+        ))}
+        {url.map((item) => (
+          <li>
+            <p>{item}</p>
+            <button>Copy</button>
+          </li>
+        ))}
       </Wrapper>
     </>
   );
