@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UrlList from "./atoms/UrlList";
 import { StyledSection, Wrapper } from "./ShortenUrl.styles";
 
@@ -6,8 +6,8 @@ const ShortenUrl = () => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [data, setData] = useState({});
   const [list, setList] = useState([]);
+  const [isActive, setIsActive] = useState(false);
 
   const API = `https://api.shrtco.de/v2/shorten?url=${value}`;
 
@@ -15,28 +15,27 @@ const ShortenUrl = () => {
     setLoading(true);
     await fetch(API)
       .then((response) => response.json())
-      .then((data) => setData(data.result))
+      .then((data) => {
+        setList([...list, data.result]);
+      })
       .catch((error) => {
         setError(error);
       })
       .finally(() => {
         setLoading(false);
       });
-    return { data, loading, error };
+    return { list, loading, error };
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    loadData();
-    console.log(value);
-    console.log(data);
-    setValue("");
-  };
-  console.log(data);
-
-  const handleClick = () => {
-    console.log(data);
-    setList([...list, data]);
+    if (value === "") {
+      setIsActive(true);
+    } else if (value !== "") {
+      loadData();
+      setIsActive(false);
+      setValue("");
+    }
   };
 
   return (
@@ -50,13 +49,12 @@ const ShortenUrl = () => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button type="submit" data={data} onClick={handleClick}>
-            Shorten It!
-          </button>
+          <button type="submit">Shorten It!</button>
         </form>
       </StyledSection>
+      {isActive ? <p>Please add a link</p> : null}
       <Wrapper>
-        <UrlList data={data} list={list} />
+        <UrlList list={list} />
       </Wrapper>
     </>
   );
