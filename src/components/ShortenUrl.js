@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import UrlList from "./atoms/UrlList";
 import { StyledSection, Wrapper } from "./ShortenUrl.styles";
 
 const ShortenUrl = () => {
@@ -34,6 +35,7 @@ const ShortenUrl = () => {
   console.log(data);
 
   const handleClick = () => {
+    console.log(data);
     setList([...list, data]);
   };
 
@@ -48,23 +50,13 @@ const ShortenUrl = () => {
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-          <button type="submit" onClick={handleClick}>
+          <button type="submit" data={data} onClick={handleClick}>
             Shorten It!
           </button>
         </form>
       </StyledSection>
       <Wrapper>
-        <ul>
-          <p>{data.original_link}</p>
-          <p>{data.full_short_link}</p>
-          {list.map((item) => (
-            <li>
-              <p>{item.original_link}</p>
-              <p>{item.full_short_link}</p>
-              <button>Copy</button>
-            </li>
-          ))}
-        </ul>
+        <UrlList data={data} list={list} />
       </Wrapper>
     </>
   );

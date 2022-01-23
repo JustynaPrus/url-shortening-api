@@ -63,5 +63,6 @@ export const Wrapper = styled.div`
   ul {
     width: 80%;
     list-style: none;
+    text-align: center;
   }
 `;
