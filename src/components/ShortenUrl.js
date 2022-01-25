@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UrlList from "./atoms/UrlList";
 import { StyledSection, Wrapper } from "./ShortenUrl.styles";
 
@@ -6,10 +6,18 @@ const ShortenUrl = () => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(() => {
+    const saved = localStorage.getItem("list");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  });
   const [isActive, setIsActive] = useState(false);
 
   const API = `https://api.shrtco.de/v2/shorten?url=${value}`;
+
+  useEffect(() => {
+    localStorage.setItem("list", JSON.stringify(list));
+  }, [list]);
 
   const loadData = async () => {
     setLoading(true);

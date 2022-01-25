@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./../BreakPoints";
 
 export const MainWrapper = styled.main`
   display: flex;
@@ -8,6 +9,9 @@ export const MainWrapper = styled.main`
   background-color: ${({ theme }) => theme.colors.gray};
   width: 100%;
   padding: 20px;
+  @media ${device.sm} {
+    padding: 0 10%;
+  }
   h2 {
     color: ${({ theme }) => theme.colors.veryDarkBlue};
     margin: 40px 0 15px 0;
@@ -24,6 +28,9 @@ export const StyledArticle = styled.article`
   margin: 50px 0;
   border-radius: 5px;
   position: relative;
+  @media ${device.sm} {
+    margin: 50px 10px;
+  }
   h3 {
     color: ${({ theme }) => theme.colors.veryDarkBlue};
     margin: 40px 0 15px 0;
@@ -51,4 +58,10 @@ export const Cirle = styled.div`
 export const StyledParagraph = styled.p`
   color: ${({ theme }) => theme.colors.veryDarkBlue};
   margin-bottom: 40px;
+`;
+
+export const Container = styled.div`
+  @media ${device.sm} {
+    display: flex;
+  }
 `;

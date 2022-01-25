@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import bgShorten from "../images/bg-shorten-mobile.svg";
+import bgShortenMobile from "../images/bg-shorten-mobile.svg";
+import bgShortenDesktop from "../images/bg-shorten-desktop.svg";
 import { device } from "./../BreakPoints";
 
 export const StyledSection = styled.section`
@@ -10,7 +11,7 @@ export const StyledSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(${bgShorten});
+    background-image: url(${bgShortenMobile});
     background-repeat: no-repeat;
     background-position: right top;
     background-color: ${({ theme }) => theme.colors.darkViolet};
@@ -19,6 +20,7 @@ export const StyledSection = styled.section`
     border-radius: 8px;
     @media ${device.sm} {
       flex-direction: row;
+      background-image: url(${bgShortenDesktop});
     }
     input {
       font-family: "Poppins", sans-serif;
@@ -41,10 +43,13 @@ export const StyledSection = styled.section`
       margin: 40px 0 0 0;
       color: white;
       font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 1.2rem;
+      font-weight: 500;
       background-color: ${({ theme }) => theme.colors.cyan};
       width: 100%;
+      &:hover {
+        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.6);
+      }
       @media ${device.sm} {
         width: auto;
         margin: 0 0 0 20px;

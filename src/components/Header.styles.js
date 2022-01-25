@@ -41,6 +41,9 @@ export const StyledButton = styled.button`
   font-size: 1rem;
   font-weight: 700;
   background-color: ${({ theme }) => theme.colors.cyan};
+  &:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.6);
+  }
 `;
 
 export const FlexWrapper = styled.div``;

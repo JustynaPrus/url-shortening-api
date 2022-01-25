@@ -20,6 +20,9 @@ export const StyledNav = styled.main`
     cursor: pointer;
     padding: 0 25px;
     color: ${({ theme }) => theme.colors.gray};
+    &:hover {
+      color: ${({ theme }) => theme.colors.veryDarkBlue};
+    }
   }
   button {
     cursor: pointer;
@@ -31,6 +34,9 @@ export const StyledNav = styled.main`
     font-size: 1rem;
     font-weight: 700;
     background-color: ${({ theme }) => theme.colors.cyan};
+    &:hover {
+      box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.6);
+    }
   }
 `;
 

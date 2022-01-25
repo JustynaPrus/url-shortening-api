@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper } from "./UrlList.styles";
+import { Wrapper, StyledParagraph } from "./UrlList.styles";
 
 const UrlList = ({ list }) => {
   const Item = (props) => {
@@ -13,15 +13,17 @@ const UrlList = ({ list }) => {
     return (
       <li id={id}>
         <p>{item.original_link}</p>
-        <p>{item.full_short_link}</p>
-        <button onClick={handleClick}>Copy</button>
+        <div>
+          <StyledParagraph>{item.full_short_link}</StyledParagraph>
+          <button onClick={handleClick}>Copy</button>
+        </div>
       </li>
     );
   };
 
   return (
     <Wrapper>
-      {list.map((item, index, className) => (
+      {list.map((item, index) => (
         <Item key={index} item={item} id={index} />
       ))}
     </Wrapper>
