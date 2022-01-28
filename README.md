@@ -1,6 +1,4 @@
-Still in progress
-
-// This is a solution to URL shortening API landing page challenge on Frontend Mentor.
+This is a solution to URL shortening API landing page challenge on Frontend Mentor.
 
 Live Site URL: https://justynaprus.github.io/url-shortening-api/
 
