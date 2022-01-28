@@ -10,7 +10,7 @@ export const StyledSection = styled.section`
   form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-image: url(${bgShortenMobile});
     background-repeat: no-repeat;
     background-position: right top;
@@ -22,25 +22,43 @@ export const StyledSection = styled.section`
       flex-direction: row;
       background-image: url(${bgShortenDesktop});
     }
-    input {
-      font-family: "Poppins", sans-serif;
-      font-weight: 500;
-      border: none;
-      border-radius: 8px;
-      padding: 15px;
+    div {
       width: 100%;
-      color: ${({ theme }) => theme.colors.grayishViolet};
-      @media ${device.sm} {
-        width: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      input {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        border: none;
+        border-radius: 8px;
+        padding: 15px;
+        width: 100%;
         flex-grow: 1;
+        color: ${({ theme }) => theme.colors.grayishViolet};
+        @media ${device.sm} {
+          width: auto;
+          padding: 20px;
+        }
+        &::placeholder {
+          font-size: 1rem;
+        }
+        &.active {
+          outline: 3px solid ${({ theme }) => theme.colors.red};
+          outline-offset: -3px;
+          &::placeholder {
+            color: ${({ theme }) => theme.colors.red};
+          }
+        }
       }
     }
+
     button {
       cursor: pointer;
       border: none;
       border-radius: 8px;
       padding: 15px 80px;
-      margin: 40px 0 0 0;
+      margin: 20px 0 0 0;
       color: white;
       font-family: "Poppins", sans-serif;
       font-size: 1.2rem;
@@ -54,6 +72,7 @@ export const StyledSection = styled.section`
         width: auto;
         margin: 0 0 0 20px;
         flex-grow: 0;
+        min-width: 260px;
       }
     }
   }
@@ -70,4 +89,11 @@ export const Wrapper = styled.div`
     list-style: none;
     text-align: center;
   }
+`;
+
+export const StyledParagraph = styled.p`
+  color: ${({ theme }) => theme.colors.red};
+  font-style: italic;
+  margin-top: 5px;
+  font-size: 14px;
 `;

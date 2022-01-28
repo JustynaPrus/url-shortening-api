@@ -8,8 +8,10 @@ const Navigation = () => {
   return (
     <Wrapper>
       <img src={logo} alt="logo" />
-      <MobileNavigation />
-      <DesktopNavigation />
+      <div>
+        <MobileNavigation />
+        <DesktopNavigation />
+      </div>
     </Wrapper>
   );
 };

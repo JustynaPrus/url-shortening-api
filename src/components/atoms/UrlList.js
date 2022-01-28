@@ -5,9 +5,10 @@ const UrlList = ({ list }) => {
   const Item = (props) => {
     const { item, id } = props;
 
-    const handleClick = () => {
+    const handleClick = (e) => {
       navigator.clipboard.writeText(item.full_short_link);
-      alert(`${item.full_short_link} copied!`);
+      e.target.classList.add("clicked");
+      e.target.innerHTML = "Copied!";
     };
 
     return (

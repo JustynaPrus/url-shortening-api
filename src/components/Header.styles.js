@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { device } from "./../BreakPoints";
 
-export const HeaderWrapper = styled.main`
-  max-width: 100vw;
+export const HeaderWrapper = styled.header`
+  max-width: 100%;
   padding: 20px;
   text-align: center;
   overflow: hidden;
@@ -14,6 +14,9 @@ export const HeaderWrapper = styled.main`
   }
   img {
     max-width: 140%;
+    @media ${device.sm} {
+      width: 50%;
+    }
   }
   h1 {
     color: ${({ theme }) => theme.colors.veryDarkBlue};
@@ -46,4 +49,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const FlexWrapper = styled.div``;
+export const FlexWrapper = styled.div`
+  margin-left: 10%;
+  margin-right: 3%;
+`;

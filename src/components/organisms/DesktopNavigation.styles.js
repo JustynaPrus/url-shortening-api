@@ -1,20 +1,21 @@
 import styled from "styled-components";
 import { device } from "../../BreakPoints";
 
-export const StyledNav = styled.main`
+export const StyledNav = styled.nav`
   display: none;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: 600;
+  width: 100%;
   @media ${device.sm} {
     display: flex;
-    justify-content: space-between;
+    width: 100%;
   }
   ul {
+    width: 100%;
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
   li {
     cursor: pointer;
@@ -42,9 +43,15 @@ export const StyledNav = styled.main`
 
 export const StyledDiv = styled.div`
   display: flex;
+  width: auto;
+  flex-grow: 1;
+  margin-left: 20px;
 `;
 export const Box = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 60px;
+  justify-content: flex-end;
+  margin: 0 0 0 60px;
+  flex-grow: 1;
+  width: auto;
 `;

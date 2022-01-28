@@ -8,6 +8,7 @@ import {
   StyledArticle,
   StyledParagraph,
   Container,
+  StyledDiv,
 } from "./Main.styles";
 
 const Main = () => {
@@ -52,6 +53,7 @@ const Main = () => {
             customizable links, supercharging audience engagement.
           </p>
         </StyledArticle>
+        <StyledDiv />
       </Container>
     </MainWrapper>
   );

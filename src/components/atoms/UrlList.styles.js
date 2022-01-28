@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { device } from "../../BreakPoints";
 
 export const Wrapper = styled.ul`
+  overflow: hidden;
   li {
     background-color: white;
     margin: 15px 0;
@@ -35,6 +36,10 @@ export const Wrapper = styled.ul`
     width: 100%;
     @media ${device.sm} {
       width: auto;
+    }
+    &.clicked {
+      background-color: ${({ theme }) => theme.colors.darkViolet};
+      padding: 10px 30px;
     }
   }
 `;

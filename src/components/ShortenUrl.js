@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UrlList from "./atoms/UrlList";
-import { StyledSection, Wrapper } from "./ShortenUrl.styles";
+import { StyledSection, Wrapper, StyledParagraph } from "./ShortenUrl.styles";
 
 const ShortenUrl = () => {
   const [value, setValue] = useState("");
@@ -50,17 +50,22 @@ const ShortenUrl = () => {
     <>
       <StyledSection>
         <form onSubmit={handleSubmit}>
-          <input
-            name="url"
-            type="text"
-            placeholder="Shorten a link here..."
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
+          <div>
+            <input
+              name="url"
+              type="text"
+              placeholder="Shorten a link here..."
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+              className={isActive ? "active" : null}
+            />
+            {isActive ? (
+              <StyledParagraph>Please add a link</StyledParagraph>
+            ) : null}
+          </div>
           <button type="submit">Shorten It!</button>
         </form>
       </StyledSection>
-      {isActive ? <p>Please add a link</p> : null}
       <Wrapper>
         <UrlList list={list} />
       </Wrapper>
